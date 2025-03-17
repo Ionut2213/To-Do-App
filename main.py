@@ -39,8 +39,15 @@ def add_tasks(tasks):
 
 
 
-def view_tasks():
-    pass
+def view_tasks(tasks):
+    task_list = tasks["tasks"]
+    if len(task_list) == 0:
+        print("No tasks available")
+    else:
+        print("Your To-Do List:")
+        for idx, task in enumerate(task_list):
+            status = "[Completed]" if task["completed"] else "[Pending]"
+            print(f"{idx + 1}. {task['description']} | {status}")
 
 
 def delete_tasks():
@@ -68,7 +75,7 @@ def main():
         if choice == "1":
             add_tasks(tasks)
         elif choice == "2":
-            view_tasks()
+            view_tasks(tasks)
         elif choice == "3":
             delete_tasks()
         elif choice == "4":
