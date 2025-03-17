@@ -50,8 +50,19 @@ def view_tasks(tasks):
             print(f"{idx + 1}. {task['description']} | {status}")
 
 
-def delete_tasks():
-    pass
+def delete_tasks(tasks):
+    view_tasks(tasks)
+
+    try:
+        task_number = int(input("Enter the task number that you want to delete: ").strip())
+        if 1 <= task_number <= len(tasks):
+            tasks["tasks"].pop(task_number - 1)
+            save_task(tasks)
+            print("Your selected task was deleted successfully")
+        else:
+            print("Please enter a valid option")
+    except:
+        print("Please enter a valid option")
 
 
 
@@ -77,7 +88,7 @@ def main():
         elif choice == "2":
             view_tasks(tasks)
         elif choice == "3":
-            delete_tasks()
+            delete_tasks(tasks)
         elif choice == "4":
             mark_task_completion()
         elif choice == "5":
