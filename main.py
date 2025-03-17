@@ -66,8 +66,19 @@ def delete_tasks(tasks):
 
 
 
-def mark_task_completion():
-    pass
+def mark_task_completion(tasks):
+    view_tasks(tasks)
+    try:
+        task_number = int(input("Enter the task number that you want to mark as complete: ").strip())
+        if 1 <= task_number <= len(tasks):
+            tasks["tasks"][task_number - 1]["completed"] = True
+            save_task(tasks)
+            print("Your selected task status has been changed")
+        else:
+            print("Please enter a valid option")
+    except:
+        print("Print enter a valid option")
+    
 
 
 
@@ -90,7 +101,7 @@ def main():
         elif choice == "3":
             delete_tasks(tasks)
         elif choice == "4":
-            mark_task_completion()
+            mark_task_completion(tasks)
         elif choice == "5":
             print("Exit the program")
             break
