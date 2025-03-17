@@ -22,3 +22,24 @@ def save_task(tasks):
             json.dump(tasks, file)
     except:
         print("ERROR during saving task")
+
+
+
+# Functions that handle to functionality of the app
+
+
+def add_tasks():
+    pass
+
+
+def view_tasks():
+    pass
+
+
+def delete_tasks():
+    pass
+
+
+
+def mark_task_completion():
+    pass
