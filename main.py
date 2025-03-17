@@ -28,8 +28,15 @@ def save_task(tasks):
 # Functions that handle to functionality of the app
 
 
-def add_tasks():
-    pass
+def add_tasks(tasks):
+    description = input("Enter Task Description:").strip()
+    if description:
+        tasks["tasks"].append({"description": description, "completed": False})
+        save_task(tasks)
+        print("Task was created successfully")
+    else:
+        print("Please enter a task description")
+
 
 
 def view_tasks():
@@ -58,15 +65,15 @@ def main():
         print("5. Exit")
 
         choice = input("Enter you choice: ").strip()
-        if choice == 1:
-            add_tasks()
-        elif choice == 2:
+        if choice == "1":
+            add_tasks(tasks)
+        elif choice == "2":
             view_tasks()
-        elif choice == 3:
+        elif choice == "3":
             delete_tasks()
-        elif choice == 4:
+        elif choice == "4":
             mark_task_completion()
-        elif choice == 5:
+        elif choice == "5":
             print("Exit the program")
             break
         else:
